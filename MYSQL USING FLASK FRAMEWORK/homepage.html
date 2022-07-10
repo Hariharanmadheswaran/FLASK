@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+    <h1>Mysql database</h1>
+    <p><a href="{{url_for("add_user")}}">ADD USER</a></p>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>CITY</th>
+            <th>EDIT</th>
+            <th>DELETE</th>
+        </tr>
+        {% for i in datas%}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.NAME}}</td>
+            <td>{{i.AGE}}</td>
+            <td>{{i.CITY}}</td>
+            <td><a href="{{url_for("edit_user",id=i.id)}}">EDIT</a></td>
+            <td><a onclick ="return confirm('are you sure to delete');" href="{{url_for("delete_user",id=i.id)}}">DELETE</a></td>
+        </tr>
+        {% endfor %}
+        <tr>
+
+        </tr>
+    </table>
+
+</body>
+</html>
